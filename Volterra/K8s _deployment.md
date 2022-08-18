@@ -1,3 +1,37 @@
 ```
 kubectl apply -f alef-sk-indivdual-k8s.yaml --kubeconfig ves_default_alef-sk-indivdual-k8s.yaml
 ```
+
+
+
+#NGINX
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nginx
+spec:
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+  selector:
+    matchLabels:
+      app: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  type: ClusterIP
+  selector:
+    app: nginx
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
