@@ -8,3 +8,10 @@
 
 
 ## on Volterra Cluster add your docker.io login credential to your namespace  
+Metadata
+Name:docker-io
+Labels
+Server FQDN:docker.io
+User Name:654561518131654
+Password
+
