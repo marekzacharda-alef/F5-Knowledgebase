@@ -23,3 +23,4 @@ STATE=MASTER
 ```
 #source
 https://docs.nginx.com/nginx/admin-guide/high-availability/ha-keepalived/
+https://docs.nginx.com/nginx/admin-guide/high-availability/configuration-sharing/
