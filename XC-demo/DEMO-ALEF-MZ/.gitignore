@@ -1,0 +1,5 @@
+*.p12
+/wordpress_in_appstack-hu/ves_system_alef-sk-appstack_kubeconfig_global.yaml
+/wordpress/ves_system_alef-sk-appstack_kubeconfig_global.yaml
+/wordpress/yml/ves_system_alef-sk-appstack_kubeconfig_global.yaml
+/arkadia/ves_system_alef-sk-appstack_kubeconfig_global.yaml

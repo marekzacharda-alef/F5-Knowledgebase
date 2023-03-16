@@ -1,0 +1,24 @@
+metadata:
+  name: mysql-pool
+  namespace: alef-sk
+  labels: {}
+  annotations: {}
+  disable: false
+spec:
+  origin_servers:
+    - k8s_service:
+        service_name: mysql.alef-sk
+        site_locator:
+          site:
+            tenant: f5-cz-guwmuexg
+            namespace: system
+            name: alef-sk-appstack
+            kind: site
+        vk8s_networks: {}
+      labels: {}
+  no_tls: {}
+  port: 3306
+  same_as_endpoint_port: {}
+  healthcheck: []
+  loadbalancer_algorithm: LB_OVERRIDE
+  endpoint_selection: LOCAL_PREFERRED
