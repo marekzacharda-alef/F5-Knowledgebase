@@ -27,7 +27,7 @@ spec:
           site:
             tenant: f5-cz-guwmuexg
             namespace: system
-            name: alef-sk-appstack
+            name: alef-hu-app-vmw
             kind: site
         port: 3306
   hash_policy_choice_round_robin: {}
