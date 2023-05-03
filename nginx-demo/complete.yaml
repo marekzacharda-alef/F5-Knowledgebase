@@ -1,0 +1,100 @@
+---
+#create PV volume for data -need to create on host "/data folder"
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: lms-data-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/data"
+---
+#create PV volume for conf -need to create on host "/config folder"
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: lms-conf-pv-volume
+  labels:
+    type: local
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/config"
+---
+#create PV Volume Claim for data
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lms-data-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+#create PV Volume Claim for conf
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lms-conf-pv-claim
+spec:
+  storageClassName: manual
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 3Gi
+---
+#create pods
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lms-pv-pod
+  labels: 
+    app: nginx
+spec:
+  volumes:
+    - name: lms-data-pv-storage
+      persistentVolumeClaim:
+        claimName: lms-data-pv-claim
+    - name: lms-conf-pv-storage
+      persistentVolumeClaim:
+        claimName: lms-conf-pv-claim
+  containers:
+    - name: lms-pv-container
+      image: nginx
+      ports:
+        - containerPort: 80
+#          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html/files"
+          name: lms-data-pv-storage
+        - mountPath: "/etc/nginx/conf.d"
+          name: lms-conf-pv-storage
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  type: LoadBalancer
+  selector:
+    app: nginx
+  ports:
+  - name: http
+    port: 80
+    targetPort: 80
+---
