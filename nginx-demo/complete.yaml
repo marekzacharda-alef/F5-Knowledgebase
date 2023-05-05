@@ -176,7 +176,7 @@ metadata:
   name: lmsfiles-nginx-ingress
 spec:
   rules:
-  - host: demofiles.xc.aleflab.hu
+  - host: [FQDN]
     http:
       paths:
       - path: /files
