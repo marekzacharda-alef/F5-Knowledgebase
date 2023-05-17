@@ -2,12 +2,7 @@ Steps to deploy KIC
 
 source > https://docs.nginx.com/nginx-ingress-controller/installation/using-the-jwt-token-docker-secret/ 
 
-kubectl create secret docker-registry regcred --docker-server=private-registry.nginx.com --docker-username=nginx-repo.jwt --docker-password=none [-n ingress]
-
-
-
-
-
+kubectl create secret docker-registry regcred --docker-server=private-registry.nginx.com --docker-username=nginx-repo.jwt --docker-password=none -n nginx-ingress
 
 #add secret 
 microk8s kubectl create secret docker-registry regcred --docker-server=private-registry.nginx.com --docker-username=nginx-repo.jwt --docker-password=none
@@ -24,7 +19,7 @@ sudo snap install helm --classic
 microk8s helm repo add nginx-stable https://helm.nginx.com/stable
 
 microk8s helm install plus nginx-stable/nginx-ingress \
---namespace ingress \
+--namespace nginx-ingress \
 --set controller.kind=deployment \
 --set controller.replicaCount=1 \
 --set controller.nginxplus=true \
@@ -35,6 +30,7 @@ microk8s helm install plus nginx-stable/nginx-ingress \
 --set controller.service.type=NodePort \
 --set controller.service.httpPort.nodePort=30080 \
 --version 0.15.2
+
 
 
 
