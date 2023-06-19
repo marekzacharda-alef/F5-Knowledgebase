@@ -1,0 +1,51 @@
+Steps to deploy KIC
+
+source > https://docs.nginx.com/nginx-ingress-controller/installation/using-the-jwt-token-docker-secret/ 
+
+kubectl create secret docker-registry regcred --docker-server=private-registry.nginx.com --docker-username=nginx-repo.jwt --docker-password=none -n nginx-ingress
+
+#add secret 
+microk8s kubectl create secret docker-registry regcred --docker-server=private-registry.nginx.com --docker-username=nginx-repo.jwt --docker-password=none
+secret/regcred created
+#check the secret
+microk8s kubectl get secret regcred --output=yaml
+
+
+
+
+#install helm 
+sudo snap install helm --classic
+
+microk8s helm repo add nginx-stable https://helm.nginx.com/stable
+
+microk8s helm install plus nginx-stable/nginx-ingress \
+--namespace nginx-ingress \
+--set controller.kind=deployment \
+--set controller.replicaCount=1 \
+--set controller.nginxplus=true \
+--set controller.image.repository=private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress \
+--set controller.image.tag=2.4.2 \
+--set controller.appprotect.enable=true \
+--set controller.serviceAccount.imagePullSecretName=regcred \
+--set controller.service.type=NodePort \
+--set controller.service.httpPort.nodePort=30080 \
+--version 0.15.2
+
+
+
+
+notes:
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: private-reg
+spec:
+  containers:
+  - name: private-reg-container
+    image: private-registry.nginx.com/nginx-ic-nap/nginx-plus-ingress
+  imagePullSecrets:
+  - name: regcred
+
+kubectl apply -f my-private-reg-pod.yaml
+kubectl get pod private-reg
