@@ -1,3 +1,5 @@
+## Setting virtaul environment 
+link https://www.freecodecamp.org/news/virtualenv-with-virtualenvwrapper-on-ubuntu-18-04/ 
 # vytvorit virtualni prostredi
 mkvirtualenv -p /usr/bin/python3 ansible
  
