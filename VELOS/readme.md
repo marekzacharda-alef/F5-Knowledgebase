@@ -2,18 +2,18 @@
 
 materials links 
 ## Planning for VELOS Guide
-https://clouddocs.f5.com/training/community/velos-training/html/
-Platform Guide: VELOS CX Series
+ https://clouddocs.f5.com/training/community/velos-training/html/
+- Platform Guide: VELOS CX Series
 https://techdocs.f5.com/en-us/hardware/platform-guide-velos-cx-series.html
-VELOS Systems: Administration and Configuration
+- VELOS Systems: Administration and Configuration
 https://techdocs.f5.com/en-us/velos-1-5-0/velos-systems-administration-configuration.html
-VELOS Systems: Software Installation and Upgrade
+- VELOS Systems: Software Installation and Upgrade
 https://techdocs.f5.com/en-us/velos-1-5-0/velos-systems-installation-upgrade.html
-VELOS Datasheet
+- VELOS Datasheet
 https://www.f5.com/pdf/data-sheet/velos-f5-powerful-next-generation-chassis-system-datasheet.pdf
-VELOS API Workflows
+- VELOS API Workflows
 https://clouddocs.f5.com/api/velos-api/velos-api-workflows.html
-F5OS-C API Documentation
+- F5OS-C API Documentation
 https://clouddocs.f5.com/api/velos-api/F5OS-C-1.5.0-api.html#section/Authentication
-F5OS-C/VELOS CLI
+- F5OS-C/VELOS CLI
 https://clouddocs.f5.com/api/velos-api/velos-cli-index.html
