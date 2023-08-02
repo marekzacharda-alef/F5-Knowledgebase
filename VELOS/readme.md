@@ -1,7 +1,6 @@
 # Velos knowledge 
-
-materials links 
-## Planning for VELOS Guide
+usefull  links 
+- Planning for VELOS Guide
  https://clouddocs.f5.com/training/community/velos-training/html/
 - Platform Guide: VELOS CX Series
 https://techdocs.f5.com/en-us/hardware/platform-guide-velos-cx-series.html
