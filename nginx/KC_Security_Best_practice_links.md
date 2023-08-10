@@ -27,7 +27,7 @@ https://www.nginx.com/blog/nginx-plus-r18-released/#dynamic-certificate-loading
 https://www.nginx.com/blog/dynamic-bandwidth-limits-nginx-plus-key-value-store/
 ### Security 
 
-https://blog.adriaan.io/one-nginx-error-page-to-rule-them-all.html)
+https://blog.adriaan.io/one-nginx-error-page-to-rule-them-all.html
 
 
 ### Performance 
