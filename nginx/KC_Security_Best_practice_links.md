@@ -7,8 +7,12 @@
 - Security Tips
 - Performance Tips
 
+![image](https://github.com/marekzacharda-alef/F5-Knowledgebase/assets/93709970/194c23b3-c4f4-421c-8fcb-0154615afa22)
+
+
 ### TLS
 https://www.thesslstore.com/blog/tls-1-3-everything-possibly-needed-know/![image](https://github.com/marekzacharda-alef/F5-Knowledgebase/assets/93709970/85309a1a-d5c2-4d91-add2-f1a2a40d8ca1)
+
 https://docs.nginx.com/nginx/fips-compliance-nginx-plus/
 
 ### Logging
