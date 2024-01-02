@@ -1,6 +1,6 @@
 # F5 Bot defence 
 <!-- Diskover -->
-## Prečo sa sa zamerať na ochanu proti Botom ?
+## Prečo sa sa zamerať na ochranu proti Botom ?
 Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje niekoľko dôvodov, prečo by ste sa mali zamerať na túto oblasť.
 
 - Prevencia DDoS útokov: Boty často súčasťou distribuovaných útokov na službu (DDoS). 
