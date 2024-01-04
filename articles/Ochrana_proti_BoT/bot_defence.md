@@ -73,3 +73,5 @@ https://community.f5.com/t5/technical-articles/f5-distributed-cloud-bot-defense-
 ## Užitočné videa a linky
 - https://simulator.f5.com/s/bot_protect
 - https://www.youtube.com/watch?v=6t35e16ZiA8
+- https://youtu.be/qofQozTpqo4
+
