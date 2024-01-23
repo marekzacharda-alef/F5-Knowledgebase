@@ -48,10 +48,14 @@ Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje nieko�
     https://docs.nginx.com/nginx-app-protect-waf/configuration-guide/configuration/#anti-automation-bot-mitigation
     - XC ako súčasť WAAP v základnom balíčku je ochrana proti botom na základe Bot signatúr 
 
-2. Pokročilá Bot ochrana v Distributed Cloud
+2. Štandardna Bot ochrana v Distributed Cloud
     - BIGIP a integrácia so Advanced Bot Defence balíčkom v XC (Distributed Cloud)
     - XC Advanced Bot Defence baliček 
  ![Alt text](image-4.png)
+3. Pokročilá Bot ochrana v Distributed Cloud
+    - BIGIP a integrácia so Advanced Bot Defence balíčkom v XC (Distributed Cloud)
+    - XC Advanced Bot Defence baliček 
+
 
 
 
