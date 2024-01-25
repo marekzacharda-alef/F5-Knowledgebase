@@ -3,8 +3,8 @@
 Odporúčame fixnúť zraniteľnosti, ktoré vyšli minulý rok.
 
 Cez zraniteľnosť CVE-2023-46747 dokážu neautentifikovaný útočníci so sieťovým prístupom k manažmentu BIGIP systému spustiť ľubovoľné systémové príkazy. Následne cez zraniteľnosť CVE-2023-46748 dokážu vykonávať aj SQL injekcie. Týmto zraniteľnostiam nepodlieha dátová časť, iba manažment. 
+- Zraniteľné sú tieto verzie BIGIP:
 ```
-Zraniteľné sú tieto verzie BIGIP. 
 17.1.0 - 17.1.1	
 16.1.0 - 16.1.4	
 15.1.0 - 15.1.10	
