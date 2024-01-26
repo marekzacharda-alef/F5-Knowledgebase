@@ -13,6 +13,6 @@ Cez zraniteľnosť CVE-2023-46747 dokážu neautentifikovaní útočníci so sie
 ```
 Odporúčame  upgradovať na verziu, kde je zraniteľnosť už opravená alebo aplikovat script  podľa odporúčania F5 z odkazu https://my.f5.com/manage/s/article/K000137353 
 
-V prípade potreby, sme vám k dispozicií. 
+V prípade potreby, sme vám k dispozícii. 
 
 
