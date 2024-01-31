@@ -1,4 +1,4 @@
-# F5 Bot defence 
+# F5 Bot Defense 
 <!-- Diskover -->
 ## Prečo sa zamerať na ochranu proti Botom ?
 Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje niekoľko dôvodov, prečo by ste sa mali zamerať na túto oblasť.
@@ -27,7 +27,7 @@ Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje nieko�
 - XC základný balíček - detekcia a blokovanie na základe BOT signatúr. 
 - NGINXplus App protect - Anti Automation  modul(Bot Mitigation) 
 - BIGIP AWAF - pokročilá ochrana voči botom pomocou signatúr a aj pomocou overovaním klienta (CSID-javascriptu). 
-- XC Bot Defence balíček Standard/Premium - (bývalý Shape) - Vlajková loď F5-tky na ochranu proti Bot-om. https://www.f5.com/cloud/products/bot-defense
+- XC Bot Defense balíček Standard/Premium - (bývalý Shape) - Vlajková loď F5-tky na ochranu proti Bot-om. https://www.f5.com/cloud/products/bot-defense
 
 ### Hlavné prednosti pokročilej ochrany proti Botom cez F5 XC 
 
@@ -49,25 +49,25 @@ Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje nieko�
 
 2. Štandardná Bot ochrana 
     - BIGIP Adwance WAF modulu 
-    - BIGIP a integrácia so Standard Bot Defence balíčkom v XC (Distributed Cloud)
+    - BIGIP a integrácia so Standard Bot Defense balíčkom v XC (Distributed Cloud)
 
 
  ![Alt text](image-4.png)
 3. Pokročilá Bot ochrana v Distributed Cloud
-    - BIGIP a integrácia so Advanced Bot Defence balíčkom v XC (Distributed Cloud)
-    - XC Advanced Bot Defence baliček
+    - BIGIP a integrácia so Advanced Bot Defense balíčkom v XC (Distributed Cloud)
+    - XC Advanced Bot Defense baliček
 
 
 
 
-### Integrácia XC Bot Defence a BIGIP 
+### Integrácia XC Bot Defense a BIGIP 
 - verzia 16.X  pomocou iAPPs templatoch 
-- verzia 17.X pomocou integrovaného modulu XC Distributed Cloud Bot defence 
+- verzia 17.X pomocou integrovaného modulu XC Distributed Cloud Bot Defense 
 https://community.f5.com/t5/technical-articles/leverage-big-ip-17-1-distributed-cloud-services-to-integrate-f5/ta-p/310464
 
 ![Alt text](image.png)
 
-### Integrácia XC Bot Defence a AWS 
+### Integrácia XC Bot Defense a AWS 
 https://community.f5.com/t5/technical-articles/f5-distributed-cloud-bot-defense-protecting-aws-cloudfront/ta-p/303203
 ![Alt text](image-1.png)
 
