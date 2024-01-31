@@ -17,7 +17,7 @@ Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje nieko�
 
 - Zabezpečenie API: V súčasnej digitálnej ekonómii sú API často terčom botov. Je potrebné poskytovať ochranu API prostredníctvom rôznych bezpečnostných funkcií, vrátane identifikácie a prevencie botov.
 
-- Infraštruktúrne náklady: Často aktivity škodlivých botov nám nahltia zdroje pre prevádzku našej infraštruktúry v cloude, alebo licenčné obmedzenia v onprem. 
+- Infraštruktúrne náklady: Často aktivity škodlivých botov nám zahltia zdroje pre prevádzku našej infraštruktúry v cloude, alebo licenčné obmedzenia v onprem. 
 
 - Automatizovane podvody: Sofistikovaní útočníci sa zameriavajú na biznis logiku zákazníkov. Snažia sa prestaviť nástroje, aby boli voči bežným mitigačným technikám bezcenné. Vedieť to k podvodom a znižuje to dôveryhodnosť u zákazníka a reputácií značky. 
 
@@ -34,7 +34,7 @@ Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje nieko�
 - Jednoduchosť inštalácie:
     Predkonfugurované zjednodušené integrácie s onprem a cloud architektúrou.
 - ML a behaviorálne analýzy:
-    Poskytujú najefektívnejšie pokročilé analýzy s takmer nulovou chybnou detekciou.
+    Poskytujú efektívne pokročilé analýzy s takmer nulovou chybovou detekciou.
 - Ochrana API, web a mobilnými aplikáciami:
     Zlepšujú používateľskú skúsenosť ochranou pre zákazníkov z viacerých zdrojov.
 - Vysoko obfuskovaný zdrojový kód:
