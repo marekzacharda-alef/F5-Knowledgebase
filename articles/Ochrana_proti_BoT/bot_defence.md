@@ -1,15 +1,15 @@
 # F5 Bot defence 
 <!-- Diskover -->
-## Prečo sa sa zamerať na ochranu proti Botom ?
+## Prečo sa zamerať na ochranu proti Botom ?
 Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje niekoľko dôvodov, prečo by ste sa mali zamerať na túto oblasť.
 
 - Prevencia DDoS útokov: Boty často súčasťou distribuovaných útokov na službu (DDoS). 
 
 - Ochrana webových aplikácií: Boty môžu byť využívané na neoprávnený prístup a škodlivé aktivity voči webovým aplikáciám. 
 
-- Manažment botov: Nie všetky boty sú škodlivé. Je potrebné správne identifikovať a manažovať boty na základe ich aktivity a vedieť rozlíšiť škodlivých a legitímných botov.
+- Manažment botov: Nie všetky boty sú škodlivé. Je potrebné správne identifikovať a manažovať boty na základe ich aktivity a vedieť rozlíšiť škodlivých a legitímnych botov.
 
-- Dôležitá súčasť bezpečnostných politík: Ochrana proti botom je kľúčovou súčasťou širšieho bezpečnostného rámca. Integrácia do vašich celkových bezpečnostných politík pomáha zabezpečiť konzistentné a spoľahlivé riešenia.
+- Dôležitá súčasť bezpečnostných politík: Ochrana proti botom je kľúčovou súčasťou širokého bezpečnostného rámca. Integrácia do vašich celkových bezpečnostných politík pomáha zabezpečiť konzistentné a spoľahlivé riešenia.
 
 - Snímanie a analýza botovej aktivity: Tieto informácie môžu byť využité na vytváranie správ a reakcií na nové vývojové hrozby.
 
@@ -19,15 +19,15 @@ Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje nieko�
 
 - Infraštruktúrne náklady: Často aktivity škodlivých botov nám nahltia zdroje pre prevádzku našej infraštruktúry v cloude, alebo licenčné obmedzenia v onprem. 
 
-- Automatizovane podvody: Sofistifikovaní útočníci sa zameriavajú na biznis logiku zákaznikov. Snažia sa prenastaviť nástroje, aby boli voči bežným mitigačným technikám bezcenné. Vediet to k podvodom a znižuje to dôverihodnosť u zákaznika a reputácií značky. 
+- Automatizovane podvody: Sofistikovaní útočníci sa zameriavajú na biznis logiku zákazníkov. Snažia sa prestaviť nástroje, aby boli voči bežným mitigačným technikám bezcenné. Vedieť to k podvodom a znižuje to dôveryhodnosť u zákazníka a reputácií značky. 
 
 <!-- Learn -->
 
 ## Porovnanie funkcionalít na ochranu proti botom cez F5 riešenia
 - XC základný balíček - detekcia a blokovanie na základe BOT signatúr. 
 - NGINXplus App protect - Anti Automation  modul(Bot Mitigation) 
-- BIGIP ako súčasť AWAF - pokročilá ochrana voči botom pomocou signatúr a aj pomocou overovaním klienta (CSID - javascriptu). 
-- XC Bot Defence balíček - (bývalý Shape) - Vlajková loď F5-tky na ochranu proti Bot-om. https://www.f5.com/cloud/products/bot-defense
+- BIGIP AWAF - pokročilá ochrana voči botom pomocou signatúr a aj pomocou overovaním klienta (CSID-javascriptu). 
+- XC Bot Defence balíček Standard/Premium - (bývalý Shape) - Vlajková loď F5-tky na ochranu proti Bot-om. https://www.f5.com/cloud/products/bot-defense
 
 ### Hlavné prednosti pokročilej ochrany proti Botom cez F5 XC 
 
@@ -38,23 +38,24 @@ Ochrana proti botom je kritickým aspektom bezpečnosti siete, a existuje nieko�
 - Ochrana API, web a mobilnými aplikáciami:
     Zlepšujú používateľskú skúsenosť ochranou pre zákazníkov z viacerých zdrojov.
 - Vysoko obfuskovaný zdrojový kód:
-    Pokročilá obfuskovanie kódu, chráni voči reverzného inžinieringu a obchádzaju zbieraniu kódu.  
+    Pokročilá obfuskovanie kódu, chráni voči reverzného inžinieringu a obchádzajú zbieraniu kódu.  
 
 ## Ako nakonfigurovať  ochranu proti Botom na cez F5-tku ? 
 
 1. Základná ochrana sa dá realizovať: 
-    - BIGIP ako súčasť licencie Adwance WAF modulu
+    - XC ako súčasť WAAP v základnom balíčku je ochrana proti botom na základe Bot signatúr 
     - NGINXplus App protect - Anti Automation (Bot Mitigation) 
     https://docs.nginx.com/nginx-app-protect-waf/configuration-guide/configuration/#anti-automation-bot-mitigation
-    - XC ako súčasť WAAP v základnom balíčku je ochrana proti botom na základe Bot signatúr 
 
-2. Štandardna Bot ochrana v Distributed Cloud
-    - BIGIP a integrácia so Advanced Bot Defence balíčkom v XC (Distributed Cloud)
-    - XC Advanced Bot Defence baliček 
+2. Štandardná Bot ochrana 
+    - BIGIP Adwance WAF modulu 
+    - BIGIP a integrácia so Standard Bot Defence balíčkom v XC (Distributed Cloud)
+
+
  ![Alt text](image-4.png)
 3. Pokročilá Bot ochrana v Distributed Cloud
     - BIGIP a integrácia so Advanced Bot Defence balíčkom v XC (Distributed Cloud)
-    - XC Advanced Bot Defence baliček 
+    - XC Advanced Bot Defence baliček
 
 
 
