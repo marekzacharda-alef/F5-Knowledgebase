@@ -6,17 +6,25 @@
 
 ### Topology
 
-![topology](img/Lab/topology.png)
+- <img src="img/Lab/lab_overview.png" alt="lab" style="zoom:50%;" />  
 
 ### Credentials
 
-- **BIG-IP**: `admin` / `vonk-gest-prim`
 - **F5 XC**: `YOUR_EMAIL` / `YOUR_PASS` 
   - Tenant: `f5-xc-lab-sec`
-- **Client**:
-  - SSH key
-  - WEB SHELL
+
+- **BIG-IP**: 
+[BIGIP LOGIN](https://trainingsk.alef.com)  `team1` / `securepasstobeannouced`
+
+<img src="image.png" alt="bigip-login" style="zoom:50%;" />
+
+- login to MGMT or DATA (protected VS) interface
+
+<img src="img/Lab/bigip_mgmt-data.png" alt="bigip-mgmt-or-data" style="zoom:50%;" />  
+
+**Client**:
   - FIREFOX
+  - CHROME
 
 ### Steps
 
@@ -26,9 +34,8 @@
 4. [Test](#test-the-app) that the apps are accessible
 5. Protect the app using *BIG-IP WAF* 
 6. Protect the app using *F5 XC*
-7. Use **Client** in **UDF** to verify your security policy. You can also use **FIREFOX** link.
+7. Use **Client**  to verify your security policy. You can also use **FIREFOX** link.
 
-<img src="img/Lab/udf-firefox.png" alt="udf-firefox" style="zoom:50%;" />
 
 8. Ask the trainer for the evaluation!
 
@@ -56,7 +63,7 @@ We will have the following categories:
 
 
 
-> Best time and top mitigated vulnerabilities is counted as *time* - (*each mitigated vulnerability = 2min*).
+## !!!  Best time and top mitigated vulnerabilities is counted as *time* - (*each mitigated vulnerability = 2min*). !!! 
 
 
 
@@ -100,9 +107,6 @@ After following the invitation email’s instructions to **Update Password**, pr
 
    performed through the course of this lab.
 
-![intro-0088](https://clouddocs.f5.com/training/community/f5xc/html/_images/intro-0088.png)
-
-![intro-0098](https://clouddocs.f5.com/training/community/f5xc/html/_images/intro-0098.png)
 
 
 
@@ -122,23 +126,26 @@ Use `YOUR_NAME_SPACE` + `lab-sec.f5demos.com` as the domain name.
 
 Configure **Origin Pool**
 
-- Get the domain name for *JuiceShop* running in **UDF** - open JUICE SHOP & copy domain name.
-
-<img src="img/Lab/udf-js.png" alt="udf-js" style="zoom: 50%;" />
-
-![js-url](img/Lab/js-url.png)
-
 - Configure the **Origin Pool**
 
-<img src="img/Lab/origin-server-0143217.png" alt="origin-server" style="zoom:50%;" />
+- each team use his own pool   
+```
+poolstudentX.ctf.kyberlabs.sk
+```
+- `X mean number of team` 
+- `from 01, 02 .. 10`   
+eg.  poolstudent02.ctf.kyberlabs.sk for team2    
+     poolstudent10.ctf.kyberlabs.sk for team10  
 
-- keep port **443**
+```
+port **111XX**        
+```
+- `X mean number of team` 
+- `from 01, 02 .. 10`   
+eg.  11102 for team2 
+     11110 for team10 
 
-<img src="img/Lab/origin-pool1.png" alt="origin-pool1" style="zoom:50%;" />
-
-- enable **TLS** towards Origin Server
-
-<img src="img/Lab/origin-pool2.png" alt="origin-pool2" style="zoom:50%;" />
+- disable **TLS** towards Origin Server
 
 **Save and Exit**
 
@@ -146,67 +153,10 @@ Configure **Origin Pool**
 
 ## Test the App
 
-Go to **UDF** -> **Client** -> **ACCESS** -> **SSH** or **WEB SHELL** or **FIREFOX**
+Go to **Client** -> **ACCESS** ->  **FIREFOX**
 
 > You can use **Client** for testing of your security policy.
 
 
-
-Test access via **BIG-IP**
-
-```bash
-curl -v 10.1.10.105
-```
-
-Excpected output:
-
-```http
-*   Trying 10.1.10.105:80...
-* TCP_NODELAY set
-* Connected to 10.1.10.105 (10.1.10.105) port 80 (#0)
-> GET / HTTP/1.1
-> Host: 10.1.10.105
-> User-Agent: curl/7.68.0
-> Accept: */*
->
-* Mark bundle as not supporting multiuse
-< HTTP/1.1 200 OK
-< Access-Control-Allow-Origin: *
-...
-< Keep-Alive: timeout=5
-<
-<!--
-  ~ Copyright (c) 2014-2023 Bjoern Kimminich & the OWASP Juice Shop contributors.
-```
-
-
-
-Test access via **F5 XC WAAP LB** 
-
-```bash
-curl -v YOUR_NAME_SPACE.lab-sec.f5demos.com
-```
-
-Excpected output:
-
-```http
-*   Trying 159.60.128.62:80...
-* TCP_NODELAY set
-* Connected to huge-earwig.lab-sec.f5demos.com (159.60.128.62) port 80 (#0)
-> GET / HTTP/1.1
-> Host: huge-earwig.lab-sec.f5demos.com
-> User-Agent: curl/7.68.0
-> Accept: */*
->
-* Mark bundle as not supporting multiuse
-< HTTP/1.1 200 OK
-< access-control-allow-origin: *
-...
-< x-volterra-location: tn2-lon
-< server: volt-adc
-<
-<!--
-  ~ Copyright (c) 2014-2023 Bjoern Kimminich & the OWASP Juice Shop contributors.
-```
 
 If the app is not accessible please reach out to the trainer.
