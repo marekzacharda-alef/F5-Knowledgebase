@@ -10,7 +10,7 @@
 
 ### Credentials
 
-- **F5 XC**: `YOUR_EMAIL` / `YOUR_PASS` 
+- **F5 XC**: `YOUR_EMAIL` / `YOUR_PASS` in **UDF **
   - Tenant: `f5-xc-lab-sec`
 
 - **BIG-IP**: 
