@@ -8,23 +8,11 @@
 
 - <img src="img/Lab/lab_overview.png" alt="lab" style="zoom:50%;" />  
 
-### Credentials
-
-- **F5 XC**: `YOUR_EMAIL` / `YOUR_PASS` in **UDF**
+### Distributed Cloud - XC 
+- **F5 XC credentials**: `YOUR_EMAIL` / `YOUR_PASS` in **UDF**
   - Tenant: `f5-xc-lab-sec`
 
-- **BIG-IP**: 
-[BIGIP LOGIN](https://trainingsk.alef.com)  `teamX` / `securepasstobeannouced`
 
-<img src="image.png" alt="bigip-login" style="zoom:50%;" />
-
-- login to MGMT or DATA (protected VS) interface
-
-<img src="img/Lab/bigip_mgmt-data.png" alt="bigip-mgmt-or-data" style="zoom:50%;" />  
-
-**Client**:
-  - FIREFOX
-  - CHROME
 
 ### Steps
 
@@ -156,6 +144,26 @@ eg.  11102 for team2
 Go to **Client** -> **ACCESS** ->  **FIREFOX**
 
 > You can use **Client** for testing of your security policy.
+
+
+### BIG IP Adwance WAF 
+
+- **BIG-IP credentials**: 
+- [Training LOGIN PAGE ](https://trainingsk.alef.com)  `teamX` / `_securepasstobeannouced_`
+
+- BIGIP LOGIN    `teamX` / `_samepasswordaslogin_`
+
+<img src="image.png" alt="bigip-login" style="zoom:50%;" />
+
+- login to MGMT or DATA (protected VS) interface
+
+<img src="img/Lab/bigip_mgmt-data.png" alt="bigip-mgmt-or-data" style="zoom:50%;" />  
+
+**Client**:
+  - FIREFOX
+  - CHROME
+
+
 
 
 
