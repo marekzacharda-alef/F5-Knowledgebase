@@ -152,6 +152,16 @@ Go to **Client** -> **ACCESS** ->  **FIREFOX**
 
 <img src="img/Lab/bigip_mgmt-data.png" alt="bigip-mgmt-or-data" style="zoom:50%;" />  
 
+- login to F5 BIGIP 
+
+![image](https://github.com/marekzacharda-alef/F5-Knowledgebase/assets/93709970/8d3f2968-656e-4784-b26f-50cc5e933b9a)
+
+- create policy
+
+![image](https://github.com/marekzacharda-alef/F5-Knowledgebase/assets/93709970/fdd17fa1-8a71-4197-93a3-28ee159af41d)
+
+
+
 **Client**:
   - FIREFOX
   - CHROME
