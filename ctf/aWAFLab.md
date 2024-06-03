@@ -8,25 +8,16 @@
 
 - <img src="img/Lab/lab_overview.png" alt="lab" style="zoom:50%;" />  
 
-### Distributed Cloud - XC 
-- **F5 XC credentials**: `YOUR_EMAIL` / `YOUR_PASS` in **UDF**
-  - Tenant: `f5-xc-lab-sec`
-
-
-
 ### Steps
 
 1. [Build F5 XC WAAP tenant](#F5-XC-WAAP-Tenant) in order to be able to participate in this part of the challange.
 2. Get familiar with the protected app -> [Juice Shop](https://owasp.org/www-project-juice-shop/)
 3. Plan your **WAAP** strategy
 4. [Test](#test-the-app) that the apps are accessible
-5. Protect the app using *BIG-IP WAF* 
-6. Protect the app using *F5 XC*
-7. Use **Client**  to verify your security policy. You can also use **FIREFOX** link.
-
-
+5. Protect the app using *F5 XC*
+6. Protect the app using *BIG-IP WAF* 
+7. Use **Client**  to verify your security policy. 
 8. Ask the trainer for the evaluation!
-
 
 
 ### Notes
@@ -50,14 +41,16 @@ We will have the following categories:
    - best time and top mitigated vulnerabilities using F5 XC
 
 
-
-## !!!  Best time and top mitigated vulnerabilities is counted as *time* - (*each mitigated vulnerability = 2min*). !!! 
-
+# !!!  Best time and top mitigated vulnerabilities is counted as *time* - (*each mitigated vulnerability = 2min*). !!! 
 
 
 ## Lab preparation
 
 ### F5 XC WAAP Tenant
+
+### Distributed Cloud - XC 
+- **F5 XC credentials**: `YOUR_EMAIL` / `YOUR_PASS` in **UDF**
+  - Tenant: `f5-xc-lab-sec`
 
 This Lab is using F5 XC SEC Lab as the starting point, so you can use the Lab Guide [here](https://clouddocs.f5.com/training/community/f5xc/html/class3/intro.html) to enable WAAP tenant or follow the guide below.
 
