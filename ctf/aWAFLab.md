@@ -14,7 +14,7 @@
   - Tenant: `f5-xc-lab-sec`
 
 - **BIG-IP**: 
-[BIGIP LOGIN](https://trainingsk.alef.com)  `team1` / `securepasstobeannouced`
+[BIGIP LOGIN](https://trainingsk.alef.com)  `teamX` / `securepasstobeannouced`
 
 <img src="image.png" alt="bigip-login" style="zoom:50%;" />
 
