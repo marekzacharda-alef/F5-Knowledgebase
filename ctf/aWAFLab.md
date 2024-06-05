@@ -3,7 +3,8 @@
 
 
 ## CTF Scenario
-
+FQDN generovane na UDF poslat emailom na **marek.zacharda@alef.com
+**
 ### Topology
 
 - <img src="img/Lab/lab_overview.png" alt="lab" style="zoom:50%;" />  
