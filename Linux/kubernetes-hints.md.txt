@@ -1,0 +1,8 @@
+#filter output for selected seletor match prod in env 
+
+kubectl get all --selector env=prod --output json | jq -j '.items | length'
+
+#remove taints from node 
+
+kubectl taint node controlplane node-role.kubernetes.io/control-plane:NoSchedule-
+
