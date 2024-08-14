@@ -3,28 +3,11 @@
 
 
 ## CTF Scenario
-
+FQDN generovane na UDF poslat emailom na **marek.zacharda@alef.com
+**
 ### Topology
 
 - <img src="img/Lab/lab_overview.png" alt="lab" style="zoom:50%;" />  
-
-### Credentials
-
-- **F5 XC**: `YOUR_EMAIL` / `YOUR_PASS` 
-  - Tenant: `f5-xc-lab-sec`
-
-- **BIG-IP**: 
-[BIGIP LOGIN](https://trainingsk.alef.com)  `team1` / `securepasstobeannouced`
-
-<img src="image.png" alt="bigip-login" style="zoom:50%;" />
-
-- login to MGMT or DATA (protected VS) interface
-
-<img src="img/Lab/bigip_mgmt-data.png" alt="bigip-mgmt-or-data" style="zoom:50%;" />  
-
-**Client**:
-  - FIREFOX
-  - CHROME
 
 ### Steps
 
@@ -32,13 +15,10 @@
 2. Get familiar with the protected app -> [Juice Shop](https://owasp.org/www-project-juice-shop/)
 3. Plan your **WAAP** strategy
 4. [Test](#test-the-app) that the apps are accessible
-5. Protect the app using *BIG-IP WAF* 
-6. Protect the app using *F5 XC*
-7. Use **Client**  to verify your security policy. You can also use **FIREFOX** link.
-
-
+5. Protect the app using *F5 XC*
+6. Protect the app using *BIG-IP WAF* 
+7. Use **Client**  to verify your security policy. 
 8. Ask the trainer for the evaluation!
-
 
 
 ### Notes
@@ -62,14 +42,16 @@ We will have the following categories:
    - best time and top mitigated vulnerabilities using F5 XC
 
 
-
-## !!!  Best time and top mitigated vulnerabilities is counted as *time* - (*each mitigated vulnerability = 2min*). !!! 
-
+# !!!  Best time and top mitigated vulnerabilities is counted as *time* - (*each mitigated vulnerability = 2min*). !!! 
 
 
 ## Lab preparation
 
 ### F5 XC WAAP Tenant
+
+### Distributed Cloud - XC 
+- **F5 XC credentials**: `YOUR_EMAIL` / `YOUR_PASS` in **UDF**
+  - Tenant: `f5-xc-lab-sec`
 
 This Lab is using F5 XC SEC Lab as the starting point, so you can use the Lab Guide [here](https://clouddocs.f5.com/training/community/f5xc/html/class3/intro.html) to enable WAAP tenant or follow the guide below.
 
@@ -156,6 +138,36 @@ eg.  11102 for team2
 Go to **Client** -> **ACCESS** ->  **FIREFOX**
 
 > You can use **Client** for testing of your security policy.
+
+
+### BIG IP Adwance WAF 
+
+- **BIG-IP credentials**: 
+- [Training LOGIN PAGE ](https://trainingsk.alef.com)  `teamX` / `_securepasstobeannouced_`
+
+- BIGIP LOGIN    `teamX` / `_samepasswordaslogin_`
+
+<img src="image.png" alt="bigip-login" style="zoom:50%;" />
+
+- login to MGMT or DATA (protected VS) interface
+
+<img src="img/Lab/bigip_mgmt-data.png" alt="bigip-mgmt-or-data" style="zoom:50%;" />  
+
+- login to F5 BIGIP 
+
+![image](https://github.com/marekzacharda-alef/F5-Knowledgebase/assets/93709970/8d3f2968-656e-4784-b26f-50cc5e933b9a)
+
+- create policy
+
+![image](https://github.com/marekzacharda-alef/F5-Knowledgebase/assets/93709970/fdd17fa1-8a71-4197-93a3-28ee159af41d)
+
+
+
+**Client**:
+  - FIREFOX
+  - CHROME
+
+
 
 
 
