@@ -6,7 +6,8 @@
 ![image](https://github.com/user-attachments/assets/c4cd0e1a-6cef-4f44-a1e2-0798ab19abd9)
 
 ## public cloud CE usecase 
-![image](https://github.com/user-attachments/assets/4fb63540-3926-48e7-82c9-3a55019da414)
+![image](https://github.com/user-attachments/assets/37887740-ad78-4668-a692-a1ad98e36a62)
+
 
 `https://community.f5.com/kb/technicalarticles/f5-distributed-cloud-customer-edge-on-f5-rseries-%E2%80%93-reference-architecture/333034`
 
