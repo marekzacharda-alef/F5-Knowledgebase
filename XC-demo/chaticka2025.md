@@ -1,6 +1,6 @@
 # F5 XC Customer Edge -CE & BIGIP Discovery   
+![chaticka2025](https://github.com/user-attachments/assets/9dc6edde-ad0f-46f3-ae35-507b6b33f34f)
 
-![chaticka2025](https://github.com/user-attachments/assets/41df1fc0-54fd-4fea-8b64-527bb46fd039)
 
 ##  BIGIP Discovery 
 ![image](https://github.com/user-attachments/assets/29633a93-dcf2-48e6-89b9-4e9eb831f8ef)
