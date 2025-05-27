@@ -1,6 +1,7 @@
 # ADC 3.0 Demo use case  
 
-![image](https://github.com/user-attachments/assets/3c29d1ed-efd6-4150-bd89-a67018da616f)
+![chaticka2025](https://github.com/user-attachments/assets/93454540-536a-4b42-834c-634e63f0f23a)
+
 
 ![image](https://github.com/user-attachments/assets/29633a93-dcf2-48e6-89b9-4e9eb831f8ef)
 
