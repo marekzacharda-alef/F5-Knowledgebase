@@ -1,0 +1,125 @@
+
+#cloud-config
+autoinstall:
+  version: 1
+
+  # Install Ubuntu Desktop (full). Use 'ubuntu-desktop-minimal' for a lighter footprint.
+  source:
+    id: ubuntu-desktop
+  # source:
+  #   id: ubuntu-desktop-minimal  # optional alternative for smaller install [2](https://linuxconfig.org/how-to-write-and-perform-ubuntu-unattended-installations-with-autoinstall)
+
+  # Localisation for Bratislava; adjust to taste
+  locale: sk_SK
+  keyboard:
+    layout: sk
+  timezone: Europe/Bratislava
+
+  # Primary desktop user created by the installer
+  identity:
+    hostname: f5student10-vm-ubuntu
+    username: training
+    # Replace with a SHA-512 crypt hash of your chosen password
+    # Example creation: `mkpasswd -m sha512crypt` (or `openssl passwd -6`) 
+    password: "$6$ChR9QaAbCjrliYbV$FdJiZbT0asex5F.0ECyo2AbLfs3OORWb2CGxpmEtMLKgJVoODrHrCMcj3F4m0xinhiaQsO5CSEn4X28VvSBe/0"  # hashed value required; not plain text [5](https://docs.cloud-init.io/en/latest/reference/yaml_examples/user_groups.html)
+
+
+  network:
+    network:
+      version: 2
+      ethernets:
+        ens33:                  # adapt to your NIC name (often ens33 on VMware)
+          dhcp4: true           # simple: DHCP for IPv4
+          optional: true
+
+
+
+
+
+  # Ensure SSH server is present and allow password auth (keys are preferred in prod)
+  ssh:
+    install-server: yes
+    allow-pw: yes  # you can set to 'no' if you only use keys later [6](https://github.com/canonical/subiquity/blob/main/doc/tutorial/creating-autoinstall-configuration.rst)
+
+  # Pre-install some snaps/packages (snaps are also installed in late-commands to be sure)
+  snaps:
+    - { name: firefox,  classic: false }
+    - { name: chromium, classic: false }
+  packages:
+    - open-vm-tools-desktop
+    - xrdp
+    - xorgxrdp
+    - ufw
+    - curl
+    - wget
+    - ca-certificates
+
+  # Optional: disk layout. 'direct' consumes the whole disk with standard partitions.
+  storage:
+    layout:
+      name: direct
+
+  # Add an extra sudo user (besides the 'identity' user) via cloud-init users module.
+  # Put a *hashed* password in 'passwd'. To generate: `mkpasswd -m sha512crypt`
+  user-data:
+    users:
+      - default          # keep default behavior
+      - name: student     # CHANGE if you want a different username
+        gecos: student
+        primary_group: student
+        groups: [sudo]
+        shell: /bin/bash
+        lock_passwd: false
+        # SHA-512 password hash (example here is placeholder; replace it) 
+        passwd: "$6$jM3OHDlhsE/qRLu7$/d2rUHlgQeFTNATiG8q/Sy1gn7f8Yl0uQLkfp3Sq4Qv0q10dJZlP4Wl6PAYomswJd6i5AmPCrI.fFRiXOq0TB0"
+        sudo: "ALL=(ALL) NOPASSWD:ALL"
+    # (You can also set ssh_authorized_keys here per user.) [5](https://docs.cloud-init.io/en/latest/reference/yaml_examples/user_groups.html)
+
+  # Post-install configuration executed inside the target system
+  late-commands:
+    # Make sure apt cache is fresh
+    - curtin in-target -- apt-get update -y
+
+    # XRDP + dependencies (if not already pulled by 'packages')
+    - curtin in-target -- apt-get install -y xrdp xorgxrdp ufw open-vm-tools-desktop
+
+    # Ensure XRDP can read certs
+    - curtin in-target -- adduser xrdp ssl-cert || true
+
+    # Force GDM to use Xorg (Wayland off) for reliable XRDP sessions
+    - curtin in-target -- bash -c "cat > /etc/gdm3/custom.conf << 'EOF'
+[daemon]
+WaylandEnable=false
+DefaultSession=gnome-xorg.desktop
+EOF"
+    # Restart xrdp to pick up changes
+    - curtin in-target -- systemctl enable xrdp
+    - curtin in-target -- systemctl restart xrdp
+
+    # Provide a clean GNOME Xorg session for XRDP via /etc/skel (applies to new users)
+    - curtin in-target -- bash -c "cat > /etc/skel/.xsession << 'EOF'
+export GNOME_SHELL_SESSION_MODE=ubuntu
+export XDG_CURRENT_DESKTOP=ubuntu:GNOME
+exec gnome-session --session=ubuntu
+EOF"
+
+    # Snap services and browsers (redundant with snaps: above, ensures present)
+    - curtin in-target -- systemctl enable --now snapd.socket || true
+    - curtin in-target -- snap install firefox || true
+    - curtin in-target -- snap install chromium || true
+
+    # Performance: reduce swapping
+    - curtin in-target -- bash -c "echo 'vm.swappiness=10' > /etc/sysctl.d/90-swappiness.conf"
+    - curtin in-target -- sysctl -p /etc/sysctl.d/90-swappiness.conf || true
+
+    # VMware tools service
+    - curtin in-target -- systemctl enable --now vmtoolsd.service || true
+
+    # UFW: allow SSH (22) and RDP (3389), then enable firewall
+    - curtin in-target -- ufw allow 22/tcp || true
+    - curtin in-target -- ufw allow 3389/tcp || true
+    - curtin in-target -- ufw --force enable || true
+
+    # Sanity: show XRDP status and UFW rules into the installer log
+    - curtin in-target -- systemctl status xrdp --no-pager || true
+    - curtin in-target -- ufw status || true
