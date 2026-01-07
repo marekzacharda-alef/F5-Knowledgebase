@@ -23,13 +23,13 @@ autoinstall:
     password: "$6$ChR9QaAbCjrliYbV$FdJiZbT0asex5F.0ECyo2AbLfs3OORWb2CGxpmEtMLKgJVoODrHrCMcj3F4m0xinhiaQsO5CSEn4X28VvSBe/0"  # hashed value required; not plain text [5](https://docs.cloud-init.io/en/latest/reference/yaml_examples/user_groups.html)
 
 
-  network:
-    network:
-      version: 2
-      ethernets:
-        ens33:                  # adapt to your NIC name (often ens33 on VMware)
-          dhcp4: true           # simple: DHCP for IPv4
-          optional: true
+#  network:
+#    network:
+#      version: 2
+#      ethernets:
+#        ens33:                  # adapt to your NIC name (often ens33 on VMware)
+#          dhcp4: true           # simple: DHCP for IPv4
+#          optional: true
 
 
 
