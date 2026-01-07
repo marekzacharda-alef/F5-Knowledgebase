@@ -21,7 +21,7 @@ autoinstall:
     username: training
     # Replace with a SHA-512 crypt hash of your chosen password
     # Example creation: `mkpasswd -m sha512crypt` (or `openssl passwd -6`) 
-    password: "$6$ChR9QaAbCjrliYbV$FdJiZbT0asex5F.0ECyo2AbLfs3OORWb2CGxpmEtMLKgJVoODrHrCMcj3F4m0xinhiaQsO5CSEn4X28VvSBe/0"  # hashed value required; not plain text [5](https://docs.cloud-init.io/en/latest/reference/yaml_examples/user_groups.html)
+    password: $6$ChR9QaAbCjrliYbV$FdJiZbT0asex5F.0ECyo2AbLfs3OORWb2CGxpmEtMLKgJVoODrHrCMcj3F4m0xinhiaQsO5CSEn4X28VvSBe/0  # hashed value required; not plain text [5](https://docs.cloud-init.io/en/latest/reference/yaml_examples/user_groups.html)
 
 
   network:
@@ -71,7 +71,7 @@ autoinstall:
         shell: /bin/bash
         lock_passwd: false
         # SHA-512 password hash (example here is placeholder; replace it) 
-        passwd: "$6$jM3OHDlhsE/qRLu7$/d2rUHlgQeFTNATiG8q/Sy1gn7f8Yl0uQLkfp3Sq4Qv0q10dJZlP4Wl6PAYomswJd6i5AmPCrI.fFRiXOq0TB0"
+        passwd: $6$jM3OHDlhsE/qRLu7$/d2rUHlgQeFTNATiG8q/Sy1gn7f8Yl0uQLkfp3Sq4Qv0q10dJZlP4Wl6PAYomswJd6i5AmPCrI.fFRiXOq0TB0
         sudo: "ALL=(ALL) NOPASSWD:ALL"
     # (You can also set ssh_authorized_keys here per user.) [5](https://docs.cloud-init.io/en/latest/reference/yaml_examples/user_groups.html)
 
