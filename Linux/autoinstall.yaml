@@ -1,4 +1,4 @@
-
+#cloud-config
 autoinstall:
   version: 1
 
@@ -20,7 +20,7 @@ autoinstall:
     username: training
     # Replace with a SHA-512 crypt hash of your chosen password
     # Example creation: `mkpasswd -m sha512crypt` (or `openssl passwd -6`) 
-    password: $6$ChR9QaAbCjrliYbV$FdJiZbT0asex5F.0ECyo2AbLfs3OORWb2CGxpmEtMLKgJVoODrHrCMcj3F4m0xinhiaQsO5CSEn4X28VvSBe/0  # hashed value required; not plain text [5](https://docs.cloud-init.io/en/latest/reference/yaml_examples/user_groups.html)
+    password: "$6$ChR9QaAbCjrliYbV$FdJiZbT0asex5F.0ECyo2AbLfs3OORWb2CGxpmEtMLKgJVoODrHrCMcj3F4m0xinhiaQsO5CSEn4X28VvSBe/0"  # hashed value required; not plain text [5](https://docs.cloud-init.io/en/latest/reference/yaml_examples/user_groups.html)
 
 
   network:
@@ -74,51 +74,61 @@ autoinstall:
         sudo: "ALL=(ALL) NOPASSWD:ALL"
     # (You can also set ssh_authorized_keys here per user.) [5](https://docs.cloud-init.io/en/latest/reference/yaml_examples/user_groups.html)
 
-  # Post-install configuration executed inside the target system
+  # Post-install configuration (runs inside the target OS)
   late-commands:
-    # Make sure apt cache is fresh
+    # Refresh apt cache
     - curtin in-target -- apt-get update -y
 
-    # XRDP + dependencies (if not already pulled by 'packages')
+    # Ensure XRDP & UFW & VMware tools are installed (in case snaps/packages did not pull everything)
     - curtin in-target -- apt-get install -y xrdp xorgxrdp ufw open-vm-tools-desktop
 
-    # Ensure XRDP can read certs
+    # Make XRDP user part of ssl-cert
     - curtin in-target -- adduser xrdp ssl-cert || true
 
-    # Force GDM to use Xorg (Wayland off) for reliable XRDP sessions
-    - curtin in-target -- bash -c "cat > /etc/gdm3/custom.conf << 'EOF'
-[daemon]
-WaylandEnable=false
-DefaultSession=gnome-xorg.desktop
-EOF"
-    # Restart xrdp to pick up changes
+    # Force GDM to Xorg (disable Wayland) and set default GNOME Xorg session
+    - |
+      curtin in-target -- bash -c "cat > /etc/gdm3/custom.conf << 'EOF'
+      [daemon]
+      WaylandEnable=false
+      DefaultSession=gnome-xorg.desktop
+      EOF"
+
+    # Enable & restart XRDP
     - curtin in-target -- systemctl enable xrdp
     - curtin in-target -- systemctl restart xrdp
 
-    # Provide a clean GNOME Xorg session for XRDP via /etc/skel (applies to new users)
-    - curtin in-target -- bash -c "cat > /etc/skel/.xsession << 'EOF'
-export GNOME_SHELL_SESSION_MODE=ubuntu
-export XDG_CURRENT_DESKTOP=ubuntu:GNOME
-exec gnome-session --session=ubuntu
-EOF"
+    # Provide a clean GNOME Xorg session for new users (via skel)
+    - |
+      curtin in-target -- bash -c "cat > /etc/skel/.xsession << 'EOF'
+      export GNOME_SHELL_SESSION_MODE=ubuntu
+      export XDG_CURRENT_DESKTOP=ubuntu:GNOME
+      exec gnome-session --session=ubuntu
+      EOF"
 
-    # Snap services and browsers (redundant with snaps: above, ensures present)
+    # Make sure snapd socket is active; install browsers (redundant safety)
     - curtin in-target -- systemctl enable --now snapd.socket || true
     - curtin in-target -- snap install firefox || true
     - curtin in-target -- snap install chromium || true
 
-    # Performance: reduce swapping
-    - curtin in-target -- bash -c "echo 'vm.swappiness=10' > /etc/sysctl.d/90-swappiness.conf"
+    # Performance: less swapping
+    - |
+      curtin in-target -- bash -c "echo 'vm.swappiness=10' > /etc/sysctl.d/90-swappiness.conf"
     - curtin in-target -- sysctl -p /etc/sysctl.d/90-swappiness.conf || true
 
     # VMware tools service
     - curtin in-target -- systemctl enable --now vmtoolsd.service || true
 
-    # UFW: allow SSH (22) and RDP (3389), then enable firewall
+    # UFW firewall: open SSH and RDP, then enable
     - curtin in-target -- ufw allow 22/tcp || true
     - curtin in-target -- ufw allow 3389/tcp || true
     - curtin in-target -- ufw --force enable || true
 
-    # Sanity: show XRDP status and UFW rules into the installer log
+    # Log checks (nice to have)
     - curtin in-target -- systemctl status xrdp --no-pager || true
     - curtin in-target -- ufw status || true
+
+
+
+
+
+
