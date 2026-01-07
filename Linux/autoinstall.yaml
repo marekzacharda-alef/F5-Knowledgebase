@@ -28,11 +28,10 @@ autoinstall:
 
 
 
- Localization:
-    locale: en_US
-    keyboard:
+  locale: en_US
+  keyboard:
     layout: us
-    timezone: Europe/Bratislava
+  timezone: Europe/Bratislava
 
 
   # Ensure SSH server is present and allow password auth (keys are preferred in prod)
