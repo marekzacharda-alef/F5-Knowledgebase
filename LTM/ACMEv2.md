@@ -1,5 +1,3 @@
-Very good article about deployment ACME on devcentral.    REF [https://community.f5.com/t/automatic-certificate-management-with-acmev2-in-f5-big-ip/77193]
-
 # ACMEv2 Certificate Automation on F5 BIG-IP 21.1 (Let's Encrypt)
 
 > **Source / credit:** Based on the DevCentral article
